@@ -7,7 +7,7 @@ defmodule FakeServer.Cowboy do
     :cowboy.start_clear(
       server.server_name,
       [port: server.port],
-      %{env: %{dispatch: server.router}}
+      %{env: %{dispatch: server.router}, http10_keepalive: false}
     )
   end
 
